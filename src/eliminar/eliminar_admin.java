@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package editar;
+package eliminar;
 
 import conexion.conexion;
 import java.sql.Connection;
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Mateo Rodriguez C - 2721519
  */
-public class editar_admin {
+public class eliminar_admin {
     public static void main(String[] args) {
         // CONEXION
         conexion con = new conexion();
@@ -26,37 +26,21 @@ public class editar_admin {
         ResultSet rs;
 
         // DATOS A EDITAR
-        int id_editar = 1;
-        String new_nombre = "Ximena";
-        String new_apell = "Jimenez";
-        String new_num_doc = "4957455";
-        String new_fech_nac = "1989/09/07";
-        String new_ciud_nac = "Bogota";
-        String new_barr_res = "Cabaña";
-        String new_direc_res = "Carrera 87 #45-4";
-        String new_edad = "44";
-        String new_genero = "Femenino";
-        String new_rh = "O+";
-        String new_eps = "Compensar";
-        String new_telefono = "34762417";
-        String new_correo = "correoRectoria@gmail.com";
-        String new_cargo = "Rector";
-        String new_usuario = "rectoria";
-        String new_contras = "65sd4f55";
+        int id_eliminar = 1;
 
         // INSTRUCCION SQL
-        String sql = "UPDATE administradores set nombre='" + new_nombre + "', apell='" + new_apell + "', num_doc='" + new_num_doc + "', fech_nac='" + new_fech_nac + "', ciud_nac='" + new_ciud_nac + "', barr_res='" + new_barr_res + "', direc_res='" + new_direc_res + "', edad='" + new_edad + "', genero='" + new_genero + "', rh='" + new_rh + "', eps='" + new_eps + "', telefono='" + new_telefono + "', correo='" + new_correo + "', cargo='" + new_cargo + "', usuario='" + new_usuario + "', contras='" + new_contras +"' where id=" + id_editar;
+        String sql = "DELETE FROM administradores where id="+id_eliminar;
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(editar_admin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(eliminar_admin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         try {
             cn = con.getConection();
             st = cn.createStatement();
-            st.executeUpdate(sql); // EDITAR DATOS
+            st.executeUpdate(sql); // ELIMINAR DATOS
             rs = st.executeQuery("SELECT * FROM administradores"); // TRAER DATOS DE LA TABLA ADMINISTRADORES
             rs.next();
 
@@ -66,7 +50,7 @@ public class editar_admin {
             } while (rs.next());
 
         } catch (SQLException ex) {
-            Logger.getLogger(editar_admin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(eliminar_admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

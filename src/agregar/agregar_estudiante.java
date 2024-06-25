@@ -43,13 +43,12 @@ public class agregar_estudiante {
         String apell_acu = "Lopez";
         String usuario = "thomlop05";
         String contras = "56s4df56";
-        int id_curso = 2;
+        int id_curso = 1;
 
-        //INSTRUCCION SQL
+        // INSTRUCCION SQL
         String sql = "INSERT INTO estudiantes(nombre, apell, num_doc, fech_nac, ciud_nac, barr_res, direc_res, edad, genero, rh, eps, telefono, correo, nomb_acud, apell_acu, usuario, contras, id_curso) values('" + nombre + "','" + apell + "','" + num_doc + "','" + fech_nac + "','" + ciud_nac + "','" + barr_res + "','" + direc_res + "','" + edad + "','" + genero + "','" + rh + "','" + eps + "','" + telefono + "','" + correo + "','" + nomb_acud + "','" + apell_acu + "','" + usuario + "','" + contras + "','" + id_curso + "');";
 
         try {
-            // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(agregar_estudiante.class.getName()).log(Level.SEVERE, null, ex);

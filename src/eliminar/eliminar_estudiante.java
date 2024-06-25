@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package editar;
+package eliminar;
 
 import conexion.conexion;
 import java.sql.Connection;
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Mateo Rodriguez C - 2721519
  */
-public class editar_estudiante {
+public class eliminar_estudiante {
     public static void main(String[] args) {
         // CONEXION
         conexion con = new conexion();
@@ -26,39 +26,21 @@ public class editar_estudiante {
         ResultSet rs;
 
         // DATOS A AGREGAR
-        int id_editar = 3;
-        String new_nombre = "Sofia";
-        String new_apell = "Sanchez";
-        String new_num_doc = "6375285";
-        String new_fech_nac = "2008/03/31";
-        String new_ciud_nac = "Bucaramanga";
-        String new_barr_res = "Alamos";
-        String new_direc_res = "Trasv 14 #34-5C";
-        String new_edad = "14";
-        String new_genero = "Femenino";
-        String new_rh = "AB-";
-        String new_eps = "SURA";
-        String new_telefono = "163274724";
-        String new_correo = "correothoms@hotmail.com";
-        String new_nomb_acud = "Dario";
-        String new_apell_acu = "Lopez";
-        String new_usuario = "thomlop05";
-        String new_contras = "56s4df56";
-        int new_id_curso = 2;
+        int id_eliminar = 5;
 
-        // INSTRUCCION SQL
-        String sql = "UPDATE estudiantes set nombre='"+new_nombre+"', apell='"+new_apell+"', num_doc='"+new_num_doc+"', fech_nac='"+new_fech_nac+"', ciud_nac='"+new_ciud_nac+"', barr_res='"+new_barr_res+"', direc_res='"+new_direc_res+"', edad='"+new_edad+"', genero='"+new_genero+"', rh='"+new_rh+"', eps='"+new_eps+"', telefono='"+new_telefono+"', correo='"+new_correo+"', nomb_acud='"+new_nomb_acud+"', apell_acu='"+new_apell_acu+"', usuario='"+new_usuario+"', contras='"+new_contras+"', id_curso='"+new_id_curso+"' where id="+id_editar;
+        //INSTRUCCION SQL
+        String sql = "DELETE FROM estudiantes where id="+id_eliminar;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(editar_estudiante.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(eliminar_estudiante.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         try {
             cn = con.getConection();
             st = cn.createStatement();
-            st.executeUpdate(sql); // EDITAR DATOS
+            st.executeUpdate(sql); // ELIMINAR DATOS
             rs = st.executeQuery("SELECT * FROM estudiantes"); // TRAER DATOS DE LA TABLA ESTUDIANTES
             rs.next();
 
@@ -68,7 +50,7 @@ public class editar_estudiante {
             } while (rs.next());
 
         } catch (SQLException ex) {
-            Logger.getLogger(editar_estudiante.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(eliminar_estudiante.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

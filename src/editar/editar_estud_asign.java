@@ -15,17 +15,17 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author USUARIO
+ * @author Mateo Rodriguez C - 2721519
  */
 public class editar_estud_asign {
     public static void main(String[] args) {
-        //CONEXION
+        // CONEXION
         conexion con = new conexion();
         Connection cn;
         Statement st;
         ResultSet rs;
 
-        //DATOS A AGREGAR
+        // DATOS A AGREGAR
         int id_editar = 1;
         int new_id_estud = 1;
         int new_id_asign = 1;
@@ -39,11 +39,10 @@ public class editar_estud_asign {
         double new_autoev = 3.5;
         double new_nota_fin = (new_nota_parc*0.80)+(new_coev*0.10)+(new_autoev*0.10);
 
-        //INSTRUCCION SQL
+        // INSTRUCCION SQL
         String sql = "UPDATE estud_asign set id_estud='"+new_id_estud+"', id_asign='"+new_id_asign+"', nota1='"+new_nota1+"', nota2='"+new_nota2+"', nota3='"+new_nota3+"', nota4='"+new_nota4+"', nota5='"+new_nota5+"', nota_parc='"+new_nota_parc+"', coev='"+new_coev+"', autoev='"+new_autoev+"', nota_fin='"+new_nota_fin+"' where id="+id_editar;
 
         try {
-            // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(editar_estud_asign.class.getName()).log(Level.SEVERE, null, ex);

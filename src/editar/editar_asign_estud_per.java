@@ -19,22 +19,21 @@ import java.util.logging.Logger;
  */
 public class editar_asign_estud_per {
     public static void main(String[] args) {
-        //CONEXION
+        // CONEXION
         conexion con = new conexion();
         Connection cn;
         Statement st;
         ResultSet rs;
 
-        //DATOS A EDITAR
+        // DATOS A EDITAR
         int id_editar = 1;
         int new_id_per = 2;
         int new_estudasign = 1;
 
-        //INSTRUCCION SQL
+        // INSTRUCCION SQL
         String sql = "UPDATE asign_estud_per set id_per='"+new_id_per+"', id_estudasign='"+new_estudasign+"' where id="+id_editar;
 
         try {
-            // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(editar_asign_estud_per.class.getName()).log(Level.SEVERE, null, ex);

@@ -15,27 +15,26 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author USUARIO
+ * @author Mateo Rodriguez C - 2721519
  */
 public class editar_asignatura {
     public static void main(String[] args) {
-        //CONEXION
+        // CONEXION
         conexion con = new conexion();
         Connection cn;
         Statement st;
         ResultSet rs;
 
-        //DATOS A EDITAR
+        // DATOS A EDITAR
         int id_editar = 1;
         String new_nombre = "Matematicas";
         String new_grado = "Cuarto";
         int new_id_prof = 2;
 
-        //INSTRUCCION SQL
+        // INSTRUCCION SQL
         String sql = "UPDATE asignaturas set nombre='"+new_nombre+"', grado='"+new_grado+"', id_prof='"+new_id_prof+"' where id="+id_editar;
 
         try {
-            // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(editar_asignatura.class.getName()).log(Level.SEVERE, null, ex);
@@ -44,8 +43,8 @@ public class editar_asignatura {
         try {
             cn = con.getConection();
             st = cn.createStatement();
-            st.executeUpdate(sql); //EDITAR DATOS
-            rs = st.executeQuery("SELECT * FROM asignaturas"); //TRAER DATOS DE LA TABLA ASIGNATURAS
+            st.executeUpdate(sql); // EDITAR DATOS
+            rs = st.executeQuery("SELECT * FROM asignaturas"); // TRAER DATOS DE LA TABLA ASIGNATURAS
             rs.next();
 
             // IMPRIMIR EN CONSOLA LOS DATOS DE LA TABLA CURSOS

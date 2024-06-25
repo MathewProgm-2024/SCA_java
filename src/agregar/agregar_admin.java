@@ -19,13 +19,13 @@ import java.util.logging.Logger;
  */
 public class agregar_admin {
     public static void main(String[] args) {
-        //CONEXION
+        // CONEXION
         conexion con = new conexion();
         Connection cn;
         Statement st;
         ResultSet rs;
 
-        //DATOS A AGREGAR
+        // DATOS A AGREGAR
         String nombre = "Helena";
         String apell = "Casallas";
         String num_doc = "265275";
@@ -43,7 +43,7 @@ public class agregar_admin {
         String usuario = "rectoria";
         String contras = "5s4dfa65";
 
-        //INSTRUCCION SQL
+        // INSTRUCCION SQL
         String sql = "INSERT INTO administradores(nombre, apell, num_doc, fech_nac, ciud_nac, barr_res, direc_res, edad, genero, rh, eps, telefono, correo, cargo, usuario, contras) values('" + nombre + "','" + apell + "','" + num_doc + "','" + fech_nac + "','" + ciud_nac + "','" + barr_res + "','" + direc_res + "','" + edad + "','" + genero + "','" + rh + "','" + eps + "','" + telefono + "','" + correo + "','" + cargo + "','" + usuario + "','" + contras + "');";
 
         try {

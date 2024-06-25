@@ -15,18 +15,18 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author USUARIO
+ * @author Mateo Rodriguez C - 2721519
  */
 public class editar_profesor {
 
     public static void main(String[] args) {
-        //CONEXION
+        // CONEXION
         conexion con = new conexion();
         Connection cn;
         Statement st;
         ResultSet rs;
 
-        //DATOS A EDITAR
+        // DATOS A EDITAR
         int id_editar = 2;
         String new_nombre = "Mario";
         String new_apell = "Garcia";
@@ -45,11 +45,10 @@ public class editar_profesor {
         String new_usuario = "profe_2";
         String new_contras = "x1v5x465";
 
-        //INSTRUCCION SQL
+        // INSTRUCCION SQL
         String sql = "UPDATE profesores set nombre='" + new_nombre + "', apell='" + new_apell + "', num_doc='" + new_num_doc + "', fech_nac='" + new_fech_nac + "', ciud_nac='" + new_ciud_nac + "', barr_res='" + new_barr_res + "', direc_res='" + new_direc_res + "', edad='" + new_edad + "', genero='" + new_genero + "', rh='" + new_rh + "', eps='" + new_eps + "', telefono='" + new_telefono + "', correo='" + new_correo + "', num_lic='" + new_num_lic + "', usuario='" + new_usuario + "', contras='" + new_contras +"' where id=" + id_editar;
         
         try {
-            // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(editar_profesor.class.getName()).log(Level.SEVERE, null, ex);

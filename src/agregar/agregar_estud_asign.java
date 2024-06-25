@@ -19,15 +19,15 @@ import java.util.logging.Logger;
  */
 public class agregar_estud_asign {
     public static void main(String[] args) {
-        //CONEXION
+        // CONEXION
         conexion con = new conexion();
         Connection cn;
         Statement st;
         ResultSet rs;
 
-        //DATOS A AGREGAR
-        int id_estud = 2;
-        int id_asign = 1;
+        // DATOS A AGREGAR
+        int id_estud = 1;
+        int id_asign = 3;
         double nota1 = 3.2;
         double nota2 = 3.2;
         double nota3 = 3.2;
@@ -38,11 +38,10 @@ public class agregar_estud_asign {
         double autoev = 3.2;
         double nota_fin = (nota_parc*0.80)+(coev*0.10)+(autoev*0.10);
 
-        //INSTRUCCION SQL
+        // INSTRUCCION SQL
         String sql = "INSERT INTO estud_asign(id_estud, id_asign, nota1, nota2, nota3, nota4, nota5, nota_parc, coev, autoev, nota_fin) values('" + id_estud + "','" + id_asign + "','" + nota1 + "','" + nota2 + "','" + nota3 + "','" + nota4 + "','" + nota5 + "','" + nota_parc + "','" + coev + "','" + autoev + "','" + nota_fin + "')";
 
         try {
-            // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(agregar_estud_asign.class.getName()).log(Level.SEVERE, null, ex);

@@ -19,21 +19,20 @@ import java.util.logging.Logger;
  */
 public class editar_periodo {
     public static void main(String[] args) {
-        //CONEXION
+        // CONEXION
         conexion con = new conexion();
         Connection cn;
         Statement st;
         ResultSet rs;
 
-        //DATOS A EDITAR
+        // DATOS A EDITAR
         int id_editar = 2;
         String new_num_per = "3";
 
-        //INSTRUCCION SQL
+        // INSTRUCCION SQL
         String sql = "UPDATE periodos set num_per='"+new_num_per+"' where id="+id_editar;
 
         try {
-            // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(editar_periodo.class.getName()).log(Level.SEVERE, null, ex);
@@ -42,7 +41,7 @@ public class editar_periodo {
         try {
             cn = con.getConection();
             st = cn.createStatement();
-            st.executeUpdate(sql); //EDITAR DATOS
+            st.executeUpdate(sql); // EDITAR DATOS
             rs = st.executeQuery("SELECT * FROM periodos"); // TRAER DATOS DE LA TABLA PERIODOS
             rs.next();
 

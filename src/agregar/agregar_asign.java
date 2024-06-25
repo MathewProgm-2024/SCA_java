@@ -19,18 +19,18 @@ import java.util.logging.Logger;
  */
 public class agregar_asign {
     public static void main(String[] args) {
-        //CONEXION
+        // CONEXION
         conexion con = new conexion();
         Connection cn;
         Statement st;
         ResultSet rs;
 
-        //DATOS A AGREGAR
+        // DATOS A AGREGAR
         String nombre = "Ciencias Sociales";
         String grado = "Quinto";
         int id_prof = 1;
 
-        //INSTRUCCION SQL
+        // INSTRUCCION SQL
         String sql = "INSERT INTO asignaturas(nombre, grado, id_prof) values('" + nombre + "','" + grado + "','" + id_prof + "')";
 
         try {
@@ -42,11 +42,11 @@ public class agregar_asign {
         try {
             cn = con.getConection();
             st = cn.createStatement();
-            st.executeUpdate(sql); //AGREGAR DATOS
-            rs = st.executeQuery("SELECT * FROM asignaturas"); //TRAER DATOS DE LA TABLA ASIGNATURAS
+            st.executeUpdate(sql); // AGREGAR DATOS
+            rs = st.executeQuery("SELECT * FROM asignaturas"); // TRAER DATOS DE LA TABLA ASIGNATURAS
             rs.next();
 
-            //IMPRIMIR EN CONSOLA LOS DATOS DE LA TABLA ASIGNATURAS
+            // IMPRIMIR EN CONSOLA LOS DATOS DE LA TABLA ASIGNATURAS
             do {
                 System.out.println(rs.getInt("id")+": "+rs.getString("nombre")+" - "+rs.getString("grado")+" - "+rs.getInt("id_prof"));
             } while (rs.next());
